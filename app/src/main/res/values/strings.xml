@@ -18,4 +18,6 @@
     <string name="reservation">reservation</string>
     <string name="logout">logout</string>
     <string name="setting">setting</string>
+    <string name="Logout">logout</string>
+    <string name="Setting">setting</string>
 </resources>
