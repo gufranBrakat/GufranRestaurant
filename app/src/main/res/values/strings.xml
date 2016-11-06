@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">GufranRestaurant</string>
+    <string name="welcome">welcome</string>
+    <string name="phone">phone number</string>
+    <string name="reservations">reservations</string>
+    <string name="chose">chose</string>
+    <string name="email">email</string>
+    <string name="Password">Password</string>
+    <string name="SignUp">SignUp</string>
+    <string name="Login">Login</string>
+    <string name="forgitepassword">forgitpassword</string>
+    <string name="RePass">RePass</string>
+    <string name="name">name</string>
+    <string name="Save">Save</string>
+    <string name="wgabat">wgabat</string>
+    <string name="Drinks">Drinks</string>
+    <string name="Phone">phone</string>
+    <string name="reservation">reservation</string>
+    <string name="logout">logout</string>
+    <string name="setting">setting</string>
+</resources>

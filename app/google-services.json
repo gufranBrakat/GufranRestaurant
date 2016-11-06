@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "884701647523",
+    "firebase_url": "https://gufranrestaurant.firebaseio.com",
+    "project_id": "gufranrestaurant",
+    "storage_bucket": "gufranrestaurant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884701647523:android:c97ea3924ecd08e7",
+        "android_client_info": {
+          "package_name": "com.saad.gufran.gufranrestaurant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884701647523-stnaepq8ag0b7m1qnl49r821ipj1hfoi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.saad.gufran.gufranrestaurant",
+            "certificate_hash": "207C202ECE9FFC5136A38028C1532ACC3AB7EAF8"
+          }
+        },
+        {
+          "client_id": "884701647523-fa779cp9jijqbpn619ko9ii1ssraei5u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLfE1RCsPETDHGKvU8tXUQA1vVZL9hX-8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884701647523-fa779cp9jijqbpn619ko9ii1ssraei5u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
