@@ -6,9 +6,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +23,7 @@ public class ChoicesActivity extends AppCompatActivity {
     private Button btn3;
     private Button btn4;
     private Button btnKabala;
+    private meal m;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,7 @@ public class ChoicesActivity extends AppCompatActivity {
         btn4 = (Button) findViewById(R.id.btn4);
         btnKabala = (Button) findViewById(R.id.btnKabla);
         eventHandler();
+        m=new meal();
 
 
 
@@ -43,11 +48,26 @@ public class ChoicesActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent i3 = new Intent(ChoicesActivity.this, LoginActivity.class);
+                startActivity(i3);
+                break;
+
+            case R.id.setting:
+                break;
+        }
+        return true;
+    }
+
 
     private void dataHanler() {
 
-
     }
+
 
 
 
@@ -129,6 +149,13 @@ public class ChoicesActivity extends AppCompatActivity {
                 "Purple",
                 "Olive"
         };
+        final double[] price = new double[]{
+                9,
+                12,
+                5,
+                8,
+                8
+        };
 
         // Boolean array for initial selected items
         final boolean[] checkedColors = new boolean[]{
@@ -168,6 +195,7 @@ public class ChoicesActivity extends AppCompatActivity {
                 // Update the current focused item's checked status
                 checkedColors[which] = isChecked;
 
+
                 // Get the current focused item
                 String currentItem = colorsList.get(which);
 
@@ -193,6 +221,8 @@ public class ChoicesActivity extends AppCompatActivity {
                     boolean checked = checkedColors[i];
                     if (checked) {
                         // tv.setText(tv.getText() + colorsList.get(i) + "\n");
+
+                            m.add(new prodact(colorsList.get(which),prodact.DRINK,price[which]));
                     }
                 }
             }
