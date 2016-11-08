@@ -20,4 +20,7 @@
     <string name="setting">setting</string>
     <string name="Logout">logout</string>
     <string name="Setting">setting</string>
+    <string name="appetizer">appetizer</string>
+    <string name="Salads">salads</string>
+    <string name="Sweets">Sweets</string>
 </resources>

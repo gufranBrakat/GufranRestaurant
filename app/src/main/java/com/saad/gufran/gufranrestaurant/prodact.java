@@ -5,6 +5,10 @@ package com.saad.gufran.gufranrestaurant;
  */
 public class prodact {
     public static final  String DRINK="drink";
+    public static final  String Wgabat="wgabat";
+    public static final  String Salads="salads";
+    public static final String Appetizer="Appetizer";
+    public static final String Sweets="sweets";
     private String name;
     private String kind;
     private double price;

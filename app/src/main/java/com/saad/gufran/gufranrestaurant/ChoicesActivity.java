@@ -19,11 +19,11 @@ import java.util.List;
 public class ChoicesActivity extends AppCompatActivity {
     private Button btnwgabat;
     private Button btnDrinks;
-    private Button btn2;
-    private Button btn3;
-    private Button btn4;
+    private Button btnAppetizer;
+    private Button btnSalads;
+    private Button btnSweets;
     private Button btnKabala;
-    private meal m;
+    private Meal m;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +31,12 @@ public class ChoicesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choices);
         btnwgabat = (Button) findViewById(R.id.btnwgabat);
         btnDrinks = (Button) findViewById(R.id.btnDrinks);
-        btn2 = (Button) findViewById(R.id.btn2);
-        btn3 = (Button) findViewById(R.id.btn3);
-        btn4 = (Button) findViewById(R.id.btn4);
+        btnAppetizer = (Button) findViewById(R.id.btnAppetizer);
+        btnSalads = (Button) findViewById(R.id.btnSalads);
+        btnSweets = (Button) findViewById(R.id.btnSweets);
         btnKabala = (Button) findViewById(R.id.btnKabla);
         eventHandler();
-        m=new meal();
+        m=new Meal();
 
 
 
@@ -94,36 +94,37 @@ public class ChoicesActivity extends AppCompatActivity {
 
 
         });
-        btn2.setOnClickListener(new View.OnClickListener() {
+       btnAppetizer.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
-                showbtn2Dialog();
+                showAppetizerDialog();
             }
 
 
         });
-        btn3.setOnClickListener(new View.OnClickListener() {
+        btnSalads.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
-                showbtn3Dialog();
+                showSaladsDialog();
             }
 
 
         });
-        btn4.setOnClickListener(new View.OnClickListener() {
+        btnSweets.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
-                showbtn4Dialog();
+                showSweetsDialog();
             }
 
 
         });
+
 
 
 
@@ -144,6 +145,227 @@ public class ChoicesActivity extends AppCompatActivity {
         // String array for alert dialog multi choice items
         String[] colors = new String[]{
                 "Red",
+                "Green",
+                "Blue",
+                "Purple",
+                "Olive"
+        };
+        final double[] price = new double[]{
+                9,
+                12,
+                5,
+                8,
+                8,
+        };
+
+        // Boolean array for initial selected items
+        final boolean[] checkedDrinks = new boolean[]{
+                false, // Red
+                false, // Green
+                false, // Blue
+                false, // Purple
+                false // Olive
+
+        };
+
+        // Convert the color array to list
+        final List<String> colorsList = Arrays.asList(colors);
+
+        // Set multiple choice items for alert dialog
+                /*
+                    AlertDialog.Builder setMultiChoiceItems(CharSequence[] items, boolean[]
+                    checkedItems, DialogInterface.OnMultiChoiceClickListener listener)
+                        Set a list of items to be displayed in the dialog as the content,
+                        you will be notified of the selected item via the supplied listener.
+                 */
+                /*
+                    DialogInterface.OnMultiChoiceClickListener
+                    public abstract void onClick (DialogInterface dialog, int which, boolean isChecked)
+
+                        This method will be invoked when an item in the dialog is clicked.
+
+                        Parameters
+                        dialog The dialog where the selection was made.
+                        which The position of the item in the list that was clicked.
+                        isChecked True if the click checked the item, else false.
+                 */
+        builder.setMultiChoiceItems(colors, checkedDrinks, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+
+                // Update the current focused item's checked status
+                checkedDrinks[which] = isChecked;
+
+
+                // Get the current focused item
+                String currentItem = colorsList.get(which);
+
+                // Notify the current action
+                Toast.makeText(getApplicationContext(),
+                        currentItem + " " + isChecked, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Specify the dialog is not cancelable
+        builder.setCancelable(false);
+
+        // Set a title for alert dialog
+        builder.setTitle("Your preferred colors?");
+
+        // Set the positive/yes button click listener
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Do something when click positive button
+                // tv.setText("Your preferred colors..... \n");
+                for (int i = 0; i < checkedDrinks.length; i++) {
+                    boolean checked = checkedDrinks[i];
+                    if (checked) {
+                        // tv.setText(tv.getText() + colorsList.get(i) + "\n");
+
+                            m.add(new prodact(colorsList.get(i),prodact.DRINK,price[i]));
+                    }
+                }
+            }
+        });
+
+        // Set the negative/no button click listener
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Do something when click the negative button
+            }
+        });
+
+        // Set the neutral/cancel button click listener
+        builder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Do something when click the neutral button
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        // Display the alert dialog on interface
+        dialog.show();
+    }
+
+    private void showWgabatDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ChoicesActivity.this);
+
+        // String array for alert dialog multi choice items
+        String[] colors = new String[]{
+                "Red111",
+                "Green",
+                "Blue",
+                "Purple",
+                "Olive"
+        };
+        final double[] price = new double[]{
+                9,
+                12,
+                5,
+                8,
+                8
+        };
+
+
+        // Boolean array for initial selected items
+        final boolean[] checkedColors = new boolean[]{
+                false, // Red
+                false, // Green
+                false, // Blue
+                false, // Purple
+                false // Olive
+
+        };
+
+        // Convert the color array to list
+        final List<String> colorsList = Arrays.asList(colors);
+
+        // Set multiple choice items for alert dialog
+                /*
+                    AlertDialog.Builder setMultiChoiceItems(CharSequence[] items, boolean[]
+                    checkedItems, DialogInterface.OnMultiChoiceClickListener listener)
+                        Set a list of items to be displayed in the dialog as the content,
+                        you will be notified of the selected item via the supplied listener.
+                 */
+                /*
+                    DialogInterface.OnMultiChoiceClickListener
+                    public abstract void onClick (DialogInterface dialog, int which, boolean isChecked)
+
+                        This method will be invoked when an item in the dialog is clicked.
+
+                        Parameters
+                        dialog The dialog where the selection was made.
+                        which The position of the item in the list that was clicked.
+                        isChecked True if the click checked the item, else false.
+                 */
+        builder.setMultiChoiceItems(colors, checkedColors, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+
+                // Update the current focused item's checked status
+                checkedColors[which] = isChecked;
+
+                // Get the current focused item
+                String currentItem = colorsList.get(which);
+
+                // Notify the current action
+                Toast.makeText(getApplicationContext(),
+                        currentItem + " " + isChecked, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Specify the dialog is not cancelable
+        builder.setCancelable(false);
+
+        // Set a title for alert dialog
+        builder.setTitle("Your preferred colors?");
+
+        // Set the positive/yes button click listener
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Do something when click positive button
+                // tv.setText("Your preferred colors..... \n");
+                for (int i = 0; i < checkedColors.length; i++) {
+                    boolean checked = checkedColors[i];
+                    if (checked) {
+                        // tv.setText(tv.getText() + colorsList.get(i) + "\n");
+                        m.add(new prodact(colorsList.get(i),prodact.Wgabat,price[i]));
+                    }
+                }
+            }
+        });
+
+        // Set the negative/no button click listener
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Do something when click the negative button
+            }
+        });
+
+        // Set the neutral/cancel button click listener
+        builder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Do something when click the neutral button
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        // Display the alert dialog on interface
+        dialog.show();
+
+    }
+    private void showAppetizerDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ChoicesActivity.this);
+
+        // String array for alert dialog multi choice items
+        String[] colors = new String[]{
+                "Red222",
                 "Green",
                 "Blue",
                 "Purple",
@@ -195,7 +417,6 @@ public class ChoicesActivity extends AppCompatActivity {
                 // Update the current focused item's checked status
                 checkedColors[which] = isChecked;
 
-
                 // Get the current focused item
                 String currentItem = colorsList.get(which);
 
@@ -221,8 +442,7 @@ public class ChoicesActivity extends AppCompatActivity {
                     boolean checked = checkedColors[i];
                     if (checked) {
                         // tv.setText(tv.getText() + colorsList.get(i) + "\n");
-
-                            m.add(new prodact(colorsList.get(which),prodact.DRINK,price[which]));
+                        m.add(new prodact(colorsList.get(i),prodact.Appetizer,price[i]));
                     }
                 }
             }
@@ -248,209 +468,7 @@ public class ChoicesActivity extends AppCompatActivity {
         // Display the alert dialog on interface
         dialog.show();
     }
-
-    private void showWgabatDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(ChoicesActivity.this);
-
-        // String array for alert dialog multi choice items
-        String[] colors = new String[]{
-                "Red111",
-                "Green",
-                "Blue",
-                "Purple",
-                "Olive"
-        };
-
-        // Boolean array for initial selected items
-        final boolean[] checkedColors = new boolean[]{
-                false, // Red
-                false, // Green
-                false, // Blue
-                false, // Purple
-                false // Olive
-
-        };
-
-        // Convert the color array to list
-        final List<String> colorsList = Arrays.asList(colors);
-
-        // Set multiple choice items for alert dialog
-                /*
-                    AlertDialog.Builder setMultiChoiceItems(CharSequence[] items, boolean[]
-                    checkedItems, DialogInterface.OnMultiChoiceClickListener listener)
-                        Set a list of items to be displayed in the dialog as the content,
-                        you will be notified of the selected item via the supplied listener.
-                 */
-                /*
-                    DialogInterface.OnMultiChoiceClickListener
-                    public abstract void onClick (DialogInterface dialog, int which, boolean isChecked)
-
-                        This method will be invoked when an item in the dialog is clicked.
-
-                        Parameters
-                        dialog The dialog where the selection was made.
-                        which The position of the item in the list that was clicked.
-                        isChecked True if the click checked the item, else false.
-                 */
-        builder.setMultiChoiceItems(colors, checkedColors, new DialogInterface.OnMultiChoiceClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-
-                // Update the current focused item's checked status
-                checkedColors[which] = isChecked;
-
-                // Get the current focused item
-                String currentItem = colorsList.get(which);
-
-                // Notify the current action
-                Toast.makeText(getApplicationContext(),
-                        currentItem + " " + isChecked, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        // Specify the dialog is not cancelable
-        builder.setCancelable(false);
-
-        // Set a title for alert dialog
-        builder.setTitle("Your preferred colors?");
-
-        // Set the positive/yes button click listener
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Do something when click positive button
-                // tv.setText("Your preferred colors..... \n");
-                for (int i = 0; i < checkedColors.length; i++) {
-                    boolean checked = checkedColors[i];
-                    if (checked) {
-                        // tv.setText(tv.getText() + colorsList.get(i) + "\n");
-                    }
-                }
-            }
-        });
-
-        // Set the negative/no button click listener
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Do something when click the negative button
-            }
-        });
-
-        // Set the neutral/cancel button click listener
-        builder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Do something when click the neutral button
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        // Display the alert dialog on interface
-        dialog.show();
-
-    }
-    private void showbtn2Dialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(ChoicesActivity.this);
-
-        // String array for alert dialog multi choice items
-        String[] colors = new String[]{
-                "Red222",
-                "Green",
-                "Blue",
-                "Purple",
-                "Olive"
-        };
-
-        // Boolean array for initial selected items
-        final boolean[] checkedColors = new boolean[]{
-                false, // Red
-                false, // Green
-                false, // Blue
-                false, // Purple
-                false // Olive
-
-        };
-
-        // Convert the color array to list
-        final List<String> colorsList = Arrays.asList(colors);
-
-        // Set multiple choice items for alert dialog
-                /*
-                    AlertDialog.Builder setMultiChoiceItems(CharSequence[] items, boolean[]
-                    checkedItems, DialogInterface.OnMultiChoiceClickListener listener)
-                        Set a list of items to be displayed in the dialog as the content,
-                        you will be notified of the selected item via the supplied listener.
-                 */
-                /*
-                    DialogInterface.OnMultiChoiceClickListener
-                    public abstract void onClick (DialogInterface dialog, int which, boolean isChecked)
-
-                        This method will be invoked when an item in the dialog is clicked.
-
-                        Parameters
-                        dialog The dialog where the selection was made.
-                        which The position of the item in the list that was clicked.
-                        isChecked True if the click checked the item, else false.
-                 */
-        builder.setMultiChoiceItems(colors, checkedColors, new DialogInterface.OnMultiChoiceClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-
-                // Update the current focused item's checked status
-                checkedColors[which] = isChecked;
-
-                // Get the current focused item
-                String currentItem = colorsList.get(which);
-
-                // Notify the current action
-                Toast.makeText(getApplicationContext(),
-                        currentItem + " " + isChecked, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        // Specify the dialog is not cancelable
-        builder.setCancelable(false);
-
-        // Set a title for alert dialog
-        builder.setTitle("Your preferred colors?");
-
-        // Set the positive/yes button click listener
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Do something when click positive button
-                // tv.setText("Your preferred colors..... \n");
-                for (int i = 0; i < checkedColors.length; i++) {
-                    boolean checked = checkedColors[i];
-                    if (checked) {
-                        // tv.setText(tv.getText() + colorsList.get(i) + "\n");
-                    }
-                }
-            }
-        });
-
-        // Set the negative/no button click listener
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Do something when click the negative button
-            }
-        });
-
-        // Set the neutral/cancel button click listener
-        builder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Do something when click the neutral button
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        // Display the alert dialog on interface
-        dialog.show();
-    }
-        private void showbtn3Dialog() {
+        private void showSaladsDialog() {
             AlertDialog.Builder builder = new AlertDialog.Builder(ChoicesActivity.this);
 
             // String array for alert dialog multi choice items
@@ -460,6 +478,13 @@ public class ChoicesActivity extends AppCompatActivity {
                     "Blue",
                     "Purple",
                     "Olive"
+            };
+            final double[] price = new double[]{
+                    9,
+                    12,
+                    5,
+                    8,
+                    8
             };
 
             // Boolean array for initial selected items
@@ -525,6 +550,7 @@ public class ChoicesActivity extends AppCompatActivity {
                         boolean checked = checkedColors[i];
                         if (checked) {
                             // tv.setText(tv.getText() + colorsList.get(i) + "\n");
+                            m.add(new prodact(colorsList.get(i),prodact.Salads,price[i]));
                         }
                     }
                 }
@@ -550,7 +576,7 @@ public class ChoicesActivity extends AppCompatActivity {
             // Display the alert dialog on interface
             dialog.show();
         }
-            private void showbtn4Dialog() {
+            private void showSweetsDialog() {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ChoicesActivity.this);
 
                 // String array for alert dialog multi choice items
@@ -560,6 +586,13 @@ public class ChoicesActivity extends AppCompatActivity {
                         "Blue",
                         "Purple",
                         "Olive"
+                };
+                final double[] price = new double[]{
+                        9,
+                        12,
+                        5,
+                        8,
+                        8
                 };
 
                 // Boolean array for initial selected items
@@ -625,6 +658,7 @@ public class ChoicesActivity extends AppCompatActivity {
                             boolean checked = checkedColors[i];
                             if (checked) {
                                 // tv.setText(tv.getText() + colorsList.get(i) + "\n");
+                                m.add(new prodact(colorsList.get(i),prodact.Sweets,price[i]));
                             }
                         }
                     }

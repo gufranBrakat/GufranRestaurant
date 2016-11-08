@@ -23,38 +23,38 @@
         android:layout_height="wrap_content"
         android:text="@string/Drinks"
         android:id="@+id/btnDrinks"
-        android:layout_above="@+id/btn2"
+        android:layout_above="@+id/btnAppetizer"
         android:layout_alignStart="@+id/btnwgabat" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Button2"
-        android:id="@+id/btn2"
-        android:layout_above="@+id/btn3"
+        android:text="@string/appetizer"
+        android:id="@+id/btnAppetizer"
+        android:layout_above="@+id/btnSalads"
         android:layout_alignEnd="@+id/btnDrinks" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Button3"
-        android:id="@+id/btn3"
-        android:layout_above="@+id/btn4"
-        android:layout_alignStart="@+id/btn2" />
+        android:text="@string/Salads"
+        android:id="@+id/btnSalads"
+        android:layout_above="@+id/btnSweets"
+        android:layout_alignStart="@+id/btnAppetizer" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button4"
-        android:id="@+id/btn4"
+        android:text="@string/Sweets"
+        android:id="@+id/btnSweets"
         android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/btn3" />
+        android:layout_alignEnd="@+id/btnSalads" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kabla"
         android:id="@+id/btnKabla"
-        android:layout_below="@+id/btn4"
+        android:layout_below="@+id/btnSweets"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

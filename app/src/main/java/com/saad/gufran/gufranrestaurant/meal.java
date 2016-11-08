@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by user on 11/7/2016.
  */
-public class meal {
+public class Meal {
 
 
 
@@ -15,7 +15,7 @@ public class meal {
     private ArrayList<prodact> wgabat;
     private ArrayList<prodact> salads;
 
-    public meal() {
+    public Meal() {
         sweets=new ArrayList<prodact>();
         drinks=new ArrayList<prodact>();
         appetizer=new ArrayList<prodact>();
@@ -31,19 +31,19 @@ public class meal {
         {
             drinks.add(p);
         }
-        if (p.getKind().equals("sweets"))
+        if (p.getKind().equals(prodact.Sweets))
         {
             sweets.add(p);
         }
-        if (p.getKind().equals("appetizer")){
+        if (p.getKind().equals(prodact.Appetizer)){
             appetizer.add(p);
         }
-        if (p.getKind().equals("wgabat"))
+        if (p.getKind().equals(prodact.Wgabat))
         {
             wgabat.add(p);
 
         }
-        if (p.getKind().equals("salads"))
+        if (p.getKind().equals(prodact.Salads))
         {
             salads.add(p);
         }
