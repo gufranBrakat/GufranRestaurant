@@ -10,14 +10,15 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ReservationActivity extends AppCompatActivity {
-    private Button btnreserv;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
 
-        btnreserv = (Button) findViewById(R.id.btnreserv);
+
+
 
 
     }
@@ -30,6 +31,7 @@ public class ReservationActivity extends AppCompatActivity {
 
 
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
