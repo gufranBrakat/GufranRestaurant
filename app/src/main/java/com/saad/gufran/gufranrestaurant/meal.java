@@ -1,11 +1,12 @@
 package com.saad.gufran.gufranrestaurant;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by user on 11/7/2016.
  */
-public class Meal {
+public class Meal implements Serializable{
 
 
 

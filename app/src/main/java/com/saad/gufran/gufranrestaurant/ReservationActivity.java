@@ -6,16 +6,33 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ReservationActivity extends AppCompatActivity {
+    private  Button btnSend;
+    private ListView etList;
+    private MyAdabter adabter;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
+        etList = (ListView) findViewById(R.id.etList);
+        btnSend=(Button)findViewById(R.id.btnSend);
+        adabter=new MyAdabter(this,R.layout.item_prodact);
+
+        ListView.setAdapter(adabter);
+
+
 
 
 
@@ -47,4 +64,27 @@ public class ReservationActivity extends AppCompatActivity {
         }
         return true;
     }
-}
+    @Override
+    protected void onStart() {
+        super.onStart();
+        initListView();
+    }
+
+
+    private void initListView() {
+        String Email=FirebaseAuth.getInstance().getCurrentUser().getEmail().replace('.','_');
+        DatabaseReference reference= FirebaseDatabase.getInstance().getReference(Email);
+        reference.child("Tasks").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                adabter.clear();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    MyTask myTask = ds.getValue(MyTask.class);
+                    adabter.add(myTask);
+                }
+            }
+
+
+
+
+

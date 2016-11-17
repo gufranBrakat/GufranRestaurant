@@ -42,7 +42,12 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btnLogin);
         auth= FirebaseAuth.getInstance();
         eventHandler();
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            Intent i1= new Intent(LoginActivity.this,ChoicesActivity.class);
+            startActivity(i1);
+            finish();
 
+        }
 
     }
 

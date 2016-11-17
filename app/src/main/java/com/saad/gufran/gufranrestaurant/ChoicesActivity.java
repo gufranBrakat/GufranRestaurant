@@ -132,6 +132,7 @@ public class ChoicesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i1 = new Intent(ChoicesActivity.this, ReservationActivity.class);
+                i1.putExtra("meal",m);
                 startActivity(i1);
             }
 
