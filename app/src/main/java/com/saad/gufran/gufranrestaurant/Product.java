@@ -3,7 +3,7 @@ package com.saad.gufran.gufranrestaurant;
 /**
  * Created by user on 11/7/2016.
  */
-public class prodact {
+public class Product {
     public static final  String DRINK="drink";
     public static final  String Wgabat="wgabat";
     public static final  String Salads="salads";
@@ -13,7 +13,7 @@ public class prodact {
     private String kind;
     private double price;
 
-    public prodact(String name, String kind, double price) {
+    public Product(String name, String kind, double price) {
         this.name = name;
         this.kind = kind;
         this.price = price;
@@ -35,7 +35,7 @@ public class prodact {
         this.price = price;
     }
 
-    public prodact() {
+    public Product() {
     }
 
     public String getName() {
@@ -48,7 +48,7 @@ public class prodact {
 
     @Override
     public String toString() {
-        return "prodact{" +
+        return "Product{" +
                 "name='" + name + '\'' +
                 ", kind='" + kind + '\'' +
                 ", price='" + price + '\'' +

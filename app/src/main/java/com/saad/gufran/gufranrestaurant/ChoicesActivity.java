@@ -224,7 +224,7 @@ public class ChoicesActivity extends AppCompatActivity {
                     if (checked) {
                         // tv.setText(tv.getText() + colorsList.get(i) + "\n");
 
-                            m.add(new prodact(colorsList.get(i),prodact.DRINK,price[i]));
+                            m.add(new Product(colorsList.get(i), Product.DRINK,price[i]));
                     }
                 }
             }
@@ -334,7 +334,7 @@ public class ChoicesActivity extends AppCompatActivity {
                     boolean checked = checkedColors[i];
                     if (checked) {
                         // tv.setText(tv.getText() + colorsList.get(i) + "\n");
-                        m.add(new prodact(colorsList.get(i),prodact.Wgabat,price[i]));
+                        m.add(new Product(colorsList.get(i), Product.Wgabat,price[i]));
                     }
                 }
             }
@@ -443,7 +443,7 @@ public class ChoicesActivity extends AppCompatActivity {
                     boolean checked = checkedColors[i];
                     if (checked) {
                         // tv.setText(tv.getText() + colorsList.get(i) + "\n");
-                        m.add(new prodact(colorsList.get(i),prodact.Appetizer,price[i]));
+                        m.add(new Product(colorsList.get(i), Product.Appetizer,price[i]));
                     }
                 }
             }
@@ -551,7 +551,7 @@ public class ChoicesActivity extends AppCompatActivity {
                         boolean checked = checkedColors[i];
                         if (checked) {
                             // tv.setText(tv.getText() + colorsList.get(i) + "\n");
-                            m.add(new prodact(colorsList.get(i),prodact.Salads,price[i]));
+                            m.add(new Product(colorsList.get(i), Product.Salads,price[i]));
                         }
                     }
                 }
@@ -659,7 +659,7 @@ public class ChoicesActivity extends AppCompatActivity {
                             boolean checked = checkedColors[i];
                             if (checked) {
                                 // tv.setText(tv.getText() + colorsList.get(i) + "\n");
-                                m.add(new prodact(colorsList.get(i),prodact.Sweets,price[i]));
+                                m.add(new Product(colorsList.get(i), Product.Sweets,price[i]));
                             }
                         }
                     }
