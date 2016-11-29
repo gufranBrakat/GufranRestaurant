@@ -31,6 +31,7 @@ public class ReservationActivity extends AppCompatActivity {
         etList = (ListView) findViewById(R.id.etList);
         btnSend=(Button)findViewById(R.id.btnSend);
         adabter=new MyAdabter(this,R.layout.item_prodact);
+        etList.setAdapter(adabter);
 
 
 
@@ -45,10 +46,7 @@ public class ReservationActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        Intent i=getIntent();
-        if (i!=null){
-            m=(Meal)i.getExtras().get("meal");
-        }
+
     }
 
     @Override
@@ -78,7 +76,12 @@ public class ReservationActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        initListView();
+        Intent i=getIntent();
+        if (i!=null){
+            m=(Meal)i.getExtras().get("meal");
+            initListView();
+        }
+
     }
 
 
@@ -86,7 +89,20 @@ public class ReservationActivity extends AppCompatActivity {
         adabter.clear();
         for (Product p:m.getDrinks())
         {
+
            adabter.add(p);
+        }
+        for (Product p:m.getAppetizer()){
+            adabter.add(p);
+        }
+        for (Product p:m.getSalads()){
+            adabter.add(p);
+        }
+        for (Product p:m.getSweets()){
+            adabter.add(p);
+        }
+        for (Product p:m.getWgabat()){
+            adabter.add(p);
         }
 
 

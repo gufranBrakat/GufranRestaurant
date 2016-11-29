@@ -32,7 +32,8 @@
         android:text="@string/appetizer"
         android:id="@+id/btnAppetizer"
         android:layout_above="@+id/btnSalads"
-        android:layout_alignEnd="@+id/btnDrinks" />
+        android:layout_alignEnd="@+id/btnDrinks"
+        android:layout_alignStart="@+id/btnSalads" />
 
     <Button
         android:layout_width="wrap_content"
@@ -40,7 +41,7 @@
         android:text="@string/Salads"
         android:id="@+id/btnSalads"
         android:layout_above="@+id/btnSweets"
-        android:layout_alignStart="@+id/btnAppetizer" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"

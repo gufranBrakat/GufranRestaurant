@@ -10,44 +10,63 @@ public class Meal implements Serializable{
 
 
 
-    private ArrayList<prodact> drinks;
-    private ArrayList<prodact> sweets;
-    private ArrayList<prodact> appetizer;
-    private ArrayList<prodact> wgabat;
-    private ArrayList<prodact> salads;
+    private ArrayList<Product> drinks;
+    private ArrayList<Product> sweets;
+    private ArrayList<Product> appetizer;
+    private ArrayList<Product> wgabat;
+    private ArrayList<Product> salads;
 
     public Meal() {
-        sweets=new ArrayList<prodact>();
-        drinks=new ArrayList<prodact>();
-        appetizer=new ArrayList<prodact>();
-        wgabat=new ArrayList<prodact>();
-        salads=new ArrayList<prodact>();
+        sweets=new ArrayList<Product>();
+        drinks=new ArrayList<Product>();
+        appetizer=new ArrayList<Product>();
+        wgabat=new ArrayList<Product>();
+        salads=new ArrayList<Product>();
 
 
     }
 
-    public void add(prodact p)
+    public void add(Product p)
     {
-        if(p.getKind().equals(prodact.DRINK))
+        if(p.getKind().equals(Product.DRINK))
         {
             drinks.add(p);
         }
-        if (p.getKind().equals(prodact.Sweets))
+        if (p.getKind().equals(Product.Sweets))
         {
             sweets.add(p);
         }
-        if (p.getKind().equals(prodact.Appetizer)){
+        if (p.getKind().equals(Product.Appetizer)){
             appetizer.add(p);
         }
-        if (p.getKind().equals(prodact.Wgabat))
+        if (p.getKind().equals(Product.Wgabat))
         {
             wgabat.add(p);
 
         }
-        if (p.getKind().equals(prodact.Salads))
+        if (p.getKind().equals(Product.Salads))
         {
             salads.add(p);
         }
     }
 
+    public ArrayList<Product> getDrinks() {
+        return drinks;
+    }
+
+    public ArrayList<Product> getSweets() {
+        return sweets;
+    }
+
+    public ArrayList<Product> getAppetizer() {
+        return appetizer;
+    }
+
+    public ArrayList<Product> getWgabat() {
+        return wgabat;
+    }
+
+    public ArrayList<Product> getSalads() {
+        return salads;
+    }
 }

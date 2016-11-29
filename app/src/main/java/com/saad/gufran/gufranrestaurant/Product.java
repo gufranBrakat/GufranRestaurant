@@ -1,9 +1,11 @@
 package com.saad.gufran.gufranrestaurant;
 
+import java.io.Serializable;
+
 /**
  * Created by user on 11/7/2016.
  */
-public class Product {
+public class Product implements Serializable{
     public static final  String DRINK="drink";
     public static final  String Wgabat="wgabat";
     public static final  String Salads="salads";
