@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.saad.gufran.gufranrestaurant.data.Meal;
+import com.saad.gufran.gufranrestaurant.data.Product;
 
 import java.util.Arrays;
 import java.util.List;
@@ -144,19 +146,28 @@ public class ChoicesActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(ChoicesActivity.this);
 
         // String array for alert dialog multi choice items
-        String[] colors = new String[]{
-                "Red",
-                "Green",
-                "Blue",
-                "Purple",
-                "Olive"
+        String[] drinks = new String[]{
+                "cola",
+                "soda",
+                "Lemonade",
+                "coffee",
+                "water",
+                "Nescafe",
+                "Tea",
+                "Sprite",
+
         };
         final double[] price = new double[]{
-                9,
-                12,
+                6,
+                6,
                 5,
                 8,
-                8,
+                5,
+                6,
+                4,
+                6,
+
+
         };
 
         // Boolean array for initial selected items
@@ -165,12 +176,15 @@ public class ChoicesActivity extends AppCompatActivity {
                 false, // Green
                 false, // Blue
                 false, // Purple
-                false // Olive
+                false, // Olive
+                false, //
+                false, //
+                false,//
 
         };
 
         // Convert the color array to list
-        final List<String> colorsList = Arrays.asList(colors);
+        final List<String> drinkList = Arrays.asList(drinks);
 
         // Set multiple choice items for alert dialog
                 /*
@@ -190,7 +204,7 @@ public class ChoicesActivity extends AppCompatActivity {
                         which The position of the item in the list that was clicked.
                         isChecked True if the click checked the item, else false.
                  */
-        builder.setMultiChoiceItems(colors, checkedDrinks, new DialogInterface.OnMultiChoiceClickListener() {
+        builder.setMultiChoiceItems(drinks, checkedDrinks, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
@@ -199,7 +213,7 @@ public class ChoicesActivity extends AppCompatActivity {
 
 
                 // Get the current focused item
-                String currentItem = colorsList.get(which);
+                String currentItem = drinkList.get(which);
 
                 // Notify the current action
                 Toast.makeText(getApplicationContext(),
@@ -211,7 +225,7 @@ public class ChoicesActivity extends AppCompatActivity {
         builder.setCancelable(false);
 
         // Set a title for alert dialog
-        builder.setTitle("Your preferred colors?");
+        builder.setTitle("Your preferred drinks");
 
         // Set the positive/yes button click listener
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -224,7 +238,7 @@ public class ChoicesActivity extends AppCompatActivity {
                     if (checked) {
                         // tv.setText(tv.getText() + colorsList.get(i) + "\n");
 
-                            m.add(new Product(colorsList.get(i), Product.DRINK,price[i]));
+                            m.add(new Product(drinkList.get(i), Product.DRINK,price[i]));
                     }
                 }
             }
@@ -255,10 +269,10 @@ public class ChoicesActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(ChoicesActivity.this);
 
         // String array for alert dialog multi choice items
-        String[] colors = new String[]{
-                "Red111",
-                "Green",
-                "Blue",
+        String[] wgbat = new String[]{
+                "kebab",
+                "Grilled chicken",
+                "",
                 "Purple",
                 "Olive"
         };
@@ -272,7 +286,7 @@ public class ChoicesActivity extends AppCompatActivity {
 
 
         // Boolean array for initial selected items
-        final boolean[] checkedColors = new boolean[]{
+        final boolean[] checkedwgabt = new boolean[]{
                 false, // Red
                 false, // Green
                 false, // Blue
@@ -282,7 +296,7 @@ public class ChoicesActivity extends AppCompatActivity {
         };
 
         // Convert the color array to list
-        final List<String> colorsList = Arrays.asList(colors);
+        final List<String> wgbatList = Arrays.asList(wgbat);
 
         // Set multiple choice items for alert dialog
                 /*
@@ -302,15 +316,15 @@ public class ChoicesActivity extends AppCompatActivity {
                         which The position of the item in the list that was clicked.
                         isChecked True if the click checked the item, else false.
                  */
-        builder.setMultiChoiceItems(colors, checkedColors, new DialogInterface.OnMultiChoiceClickListener() {
+        builder.setMultiChoiceItems(wgbat, checkedwgabt, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
                 // Update the current focused item's checked status
-                checkedColors[which] = isChecked;
+                checkedwgabt[which] = isChecked;
 
                 // Get the current focused item
-                String currentItem = colorsList.get(which);
+                String currentItem = wgbatList.get(which);
 
                 // Notify the current action
                 Toast.makeText(getApplicationContext(),
@@ -322,7 +336,7 @@ public class ChoicesActivity extends AppCompatActivity {
         builder.setCancelable(false);
 
         // Set a title for alert dialog
-        builder.setTitle("Your preferred colors?");
+        builder.setTitle("Your preferred wgba?");
 
         // Set the positive/yes button click listener
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -330,11 +344,11 @@ public class ChoicesActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 // Do something when click positive button
                 // tv.setText("Your preferred colors..... \n");
-                for (int i = 0; i < checkedColors.length; i++) {
-                    boolean checked = checkedColors[i];
+                for (int i = 0; i < checkedwgabt.length; i++) {
+                    boolean checked =checkedwgabt[i];
                     if (checked) {
                         // tv.setText(tv.getText() + colorsList.get(i) + "\n");
-                        m.add(new Product(colorsList.get(i), Product.Wgabat,price[i]));
+                        m.add(new Product(wgbatList.get(i), Product.Wgabat,price[i]));
                     }
                 }
             }
@@ -365,10 +379,10 @@ public class ChoicesActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(ChoicesActivity.this);
 
         // String array for alert dialog multi choice items
-        String[] colors = new String[]{
-                "Red222",
-                "Green",
-                "Blue",
+        String[] appetizer = new String[]{
+                "Hamburg",
+                "schnitzel",
+                "chips",
                 "Purple",
                 "Olive"
         };
@@ -381,7 +395,7 @@ public class ChoicesActivity extends AppCompatActivity {
         };
 
         // Boolean array for initial selected items
-        final boolean[] checkedColors = new boolean[]{
+        final boolean[] checkedAppetizer = new boolean[]{
                 false, // Red
                 false, // Green
                 false, // Blue
@@ -391,7 +405,7 @@ public class ChoicesActivity extends AppCompatActivity {
         };
 
         // Convert the color array to list
-        final List<String> colorsList = Arrays.asList(colors);
+        final List<String> appetizerList = Arrays.asList(appetizer);
 
         // Set multiple choice items for alert dialog
                 /*
@@ -411,15 +425,15 @@ public class ChoicesActivity extends AppCompatActivity {
                         which The position of the item in the list that was clicked.
                         isChecked True if the click checked the item, else false.
                  */
-        builder.setMultiChoiceItems(colors, checkedColors, new DialogInterface.OnMultiChoiceClickListener() {
+        builder.setMultiChoiceItems(appetizer, checkedAppetizer, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
                 // Update the current focused item's checked status
-                checkedColors[which] = isChecked;
+                checkedAppetizer[which] = isChecked;
 
                 // Get the current focused item
-                String currentItem = colorsList.get(which);
+                String currentItem = appetizerList.get(which);
 
                 // Notify the current action
                 Toast.makeText(getApplicationContext(),
@@ -431,7 +445,7 @@ public class ChoicesActivity extends AppCompatActivity {
         builder.setCancelable(false);
 
         // Set a title for alert dialog
-        builder.setTitle("Your preferred colors?");
+        builder.setTitle("Your preferred appetizer?");
 
         // Set the positive/yes button click listener
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -439,11 +453,11 @@ public class ChoicesActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 // Do something when click positive button
                 // tv.setText("Your preferred colors..... \n");
-                for (int i = 0; i < checkedColors.length; i++) {
-                    boolean checked = checkedColors[i];
+                for (int i = 0; i < checkedAppetizer.length; i++) {
+                    boolean checked = checkedAppetizer[i];
                     if (checked) {
                         // tv.setText(tv.getText() + colorsList.get(i) + "\n");
-                        m.add(new Product(colorsList.get(i), Product.Appetizer,price[i]));
+                        m.add(new Product(appetizerList.get(i), Product.Appetizer,price[i]));
                     }
                 }
             }
@@ -473,23 +487,23 @@ public class ChoicesActivity extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(ChoicesActivity.this);
 
             // String array for alert dialog multi choice items
-            String[] colors = new String[]{
-                    "Red333",
-                    "Green",
-                    "Blue",
+            String[] salad = new String[]{
+                    "cabbage salad",
+                    "cucumber and totatos",
+                    "corn_pickles",
                     "Purple",
                     "Olive"
             };
             final double[] price = new double[]{
-                    9,
                     12,
-                    5,
+                    12,
+                    13,
                     8,
                     8
             };
 
             // Boolean array for initial selected items
-            final boolean[] checkedColors = new boolean[]{
+            final boolean[] checkedsalad = new boolean[]{
                     false, // Red
                     false, // Green
                     false, // Blue
@@ -499,7 +513,7 @@ public class ChoicesActivity extends AppCompatActivity {
             };
 
             // Convert the color array to list
-            final List<String> colorsList = Arrays.asList(colors);
+            final List<String> saladList = Arrays.asList(salad);
 
             // Set multiple choice items for alert dialog
                 /*
@@ -519,15 +533,15 @@ public class ChoicesActivity extends AppCompatActivity {
                         which The position of the item in the list that was clicked.
                         isChecked True if the click checked the item, else false.
                  */
-            builder.setMultiChoiceItems(colors, checkedColors, new DialogInterface.OnMultiChoiceClickListener() {
+            builder.setMultiChoiceItems(salad, checkedsalad, new DialogInterface.OnMultiChoiceClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
                     // Update the current focused item's checked status
-                    checkedColors[which] = isChecked;
+                    checkedsalad[which] = isChecked;
 
                     // Get the current focused item
-                    String currentItem = colorsList.get(which);
+                    String currentItem = saladList.get(which);
 
                     // Notify the current action
                     Toast.makeText(getApplicationContext(),
@@ -539,7 +553,7 @@ public class ChoicesActivity extends AppCompatActivity {
             builder.setCancelable(false);
 
             // Set a title for alert dialog
-            builder.setTitle("Your preferred colors?");
+            builder.setTitle("Your preferred salads?");
 
             // Set the positive/yes button click listener
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -547,11 +561,11 @@ public class ChoicesActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     // Do something when click positive button
                     // tv.setText("Your preferred colors..... \n");
-                    for (int i = 0; i < checkedColors.length; i++) {
-                        boolean checked = checkedColors[i];
+                    for (int i = 0; i < checkedsalad.length; i++) {
+                        boolean checked = checkedsalad[i];
                         if (checked) {
                             // tv.setText(tv.getText() + colorsList.get(i) + "\n");
-                            m.add(new Product(colorsList.get(i), Product.Salads,price[i]));
+                            m.add(new Product(saladList.get(i), Product.Salads,price[i]));
                         }
                     }
                 }
@@ -581,10 +595,10 @@ public class ChoicesActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ChoicesActivity.this);
 
                 // String array for alert dialog multi choice items
-                String[] colors = new String[]{
-                        "Red444",
-                        "Green",
-                        "Blue",
+                String[] sweet = new String[]{
+                        "Souffle",
+                        "Pavla",
+                        "Fruits",
                         "Purple",
                         "Olive"
                 };
@@ -593,11 +607,11 @@ public class ChoicesActivity extends AppCompatActivity {
                         12,
                         5,
                         8,
-                        8
+                        8,
                 };
 
                 // Boolean array for initial selected items
-                final boolean[] checkedColors = new boolean[]{
+                final boolean[] checkedsweet = new boolean[]{
                         false, // Red
                         false, // Green
                         false, // Blue
@@ -607,7 +621,7 @@ public class ChoicesActivity extends AppCompatActivity {
                 };
 
                 // Convert the color array to list
-                final List<String> colorsList = Arrays.asList(colors);
+                final List<String> sweetList = Arrays.asList(sweet);
 
                 // Set multiple choice items for alert dialog
                 /*
@@ -627,15 +641,15 @@ public class ChoicesActivity extends AppCompatActivity {
                         which The position of the item in the list that was clicked.
                         isChecked True if the click checked the item, else false.
                  */
-                builder.setMultiChoiceItems(colors, checkedColors, new DialogInterface.OnMultiChoiceClickListener() {
+                builder.setMultiChoiceItems(sweet, checkedsweet, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
                         // Update the current focused item's checked status
-                        checkedColors[which] = isChecked;
+                       checkedsweet[which] = isChecked;
 
                         // Get the current focused item
-                        String currentItem = colorsList.get(which);
+                        String currentItem = sweetList.get(which);
 
                         // Notify the current action
                         Toast.makeText(getApplicationContext(),
@@ -647,7 +661,7 @@ public class ChoicesActivity extends AppCompatActivity {
                 builder.setCancelable(false);
 
                 // Set a title for alert dialog
-                builder.setTitle("Your preferred colors?");
+                builder.setTitle("Your preferred sweets?");
 
                 // Set the positive/yes button click listener
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -655,11 +669,11 @@ public class ChoicesActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         // Do something when click positive button
                         // tv.setText("Your preferred colors..... \n");
-                        for (int i = 0; i < checkedColors.length; i++) {
-                            boolean checked = checkedColors[i];
+                        for (int i = 0; i < checkedsweet.length; i++) {
+                            boolean checked = checkedsweet[i];
                             if (checked) {
                                 // tv.setText(tv.getText() + colorsList.get(i) + "\n");
-                                m.add(new Product(colorsList.get(i), Product.Sweets,price[i]));
+                                m.add(new Product(sweetList.get(i), Product.Sweets,price[i]));
                             }
                         }
                     }

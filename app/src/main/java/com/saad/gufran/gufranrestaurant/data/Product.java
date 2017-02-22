@@ -1,4 +1,4 @@
-package com.saad.gufran.gufranrestaurant;
+package com.saad.gufran.gufranrestaurant.data;
 
 import java.io.Serializable;
 

@@ -16,7 +16,8 @@
         android:text="@string/wgabat"
         android:id="@+id/btnwgabat"
         android:layout_above="@+id/btnDrinks"
-        android:layout_alignStart="@+id/btnKabla" />
+        android:layout_alignStart="@+id/btnKabla"
+        android:background="#62856d" />
 
     <Button
         android:layout_width="wrap_content"
@@ -24,7 +25,8 @@
         android:text="@string/Drinks"
         android:id="@+id/btnDrinks"
         android:layout_above="@+id/btnAppetizer"
-        android:layout_alignStart="@+id/btnwgabat" />
+        android:layout_alignStart="@+id/btnwgabat"
+        android:background="#9ed4c0" />
 
     <Button
         android:layout_width="wrap_content"
@@ -33,7 +35,8 @@
         android:id="@+id/btnAppetizer"
         android:layout_above="@+id/btnSalads"
         android:layout_alignEnd="@+id/btnDrinks"
-        android:layout_alignStart="@+id/btnSalads" />
+        android:layout_alignStart="@+id/btnSalads"
+        android:background="#ace5c9" />
 
     <Button
         android:layout_width="wrap_content"
@@ -41,7 +44,8 @@
         android:text="@string/Salads"
         android:id="@+id/btnSalads"
         android:layout_above="@+id/btnSweets"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#59d6af" />
 
     <Button
         android:layout_width="wrap_content"
@@ -49,7 +53,8 @@
         android:text="@string/Sweets"
         android:id="@+id/btnSweets"
         android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/btnSalads" />
+        android:layout_alignEnd="@+id/btnSalads"
+        android:background="#3cc070" />
 
     <Button
         android:layout_width="wrap_content"
@@ -57,5 +62,6 @@
         android:text="Kabla"
         android:id="@+id/btnKabla"
         android:layout_below="@+id/btnSweets"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#2e8653" />
 </RelativeLayout>

@@ -5,23 +5,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.saad.gufran.gufranrestaurant.data.Meal;
+import com.saad.gufran.gufranrestaurant.data.MyAdabter;
+import com.saad.gufran.gufranrestaurant.data.Product;
 
 public class ReservationActivity extends AppCompatActivity {
     private  Button btnSend;
     private ListView etList;
     private MyAdabter adabter;
     private Meal m;
-
+    DatabaseReference reference;
 
 
     @Override
@@ -31,6 +33,7 @@ public class ReservationActivity extends AppCompatActivity {
         etList = (ListView) findViewById(R.id.etList);
         btnSend=(Button)findViewById(R.id.btnSend);
         adabter=new MyAdabter(this,R.layout.item_prodact);
+        reference = FirebaseDatabase.getInstance().getReference();
         etList.setAdapter(adabter);
 
 
@@ -40,8 +43,38 @@ public class ReservationActivity extends AppCompatActivity {
 
 
 
+        btnSend.setOnClickListener(sendListener);
 
     }
+    View.OnClickListener sendListener=new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+           // m.setAppetizer(stTaskText);
+
+
+
+            String email= FirebaseAuth.getInstance().getCurrentUser().getEmail();
+            email=email.replace(".","_");
+
+            reference.child(email).child("talabat").push().setValue(m, new DatabaseReference.CompletionListener() {
+
+                @Override
+                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                    if (databaseError == null) {
+                        Toast.makeText(getBaseContext(), "save ok", Toast.LENGTH_LONG).show();
+
+                    } else {
+                        Toast.makeText(getBaseContext(), "save Err" + databaseError.getMessage(), Toast.LENGTH_LONG).show();
+                        databaseError.toException().printStackTrace();
+
+                    }
+
+
+                }
+            });
+        }
+    };
+
 
     @Override
     protected void onRestart() {

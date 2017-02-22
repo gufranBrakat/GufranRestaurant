@@ -1,4 +1,4 @@
-package com.saad.gufran.gufranrestaurant;
+package com.saad.gufran.gufranrestaurant.data;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,13 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.saad.gufran.gufranrestaurant.R;
+import com.saad.gufran.gufranrestaurant.data.Product;
 
 /**
  * Created by user on 10/30/2016.
@@ -24,7 +23,9 @@ public class MyAdabter extends ArrayAdapter<Product> {
     }
 
 
-
+    /***
+     *
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = LayoutInflater.from(getContext()).

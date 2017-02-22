@@ -18,7 +18,9 @@
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ChoicesActivity" />
-        <activity android:name=".ReservationActivity"></activity>
+        <activity android:name=".ReservationActivity" />
+        <activity android:name=".data.RestaurantActivity" />
+        <activity android:name=".Orders"></activity>
     </application>
 
 </manifest>
