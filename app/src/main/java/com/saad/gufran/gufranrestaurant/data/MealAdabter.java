@@ -12,10 +12,10 @@ import com.saad.gufran.gufranrestaurant.R;
 /**
  * Created by user on 2/12/2017.
  */
-public class MyAdabter2 extends ArrayAdapter<Meal> {
+public class MealAdabter extends ArrayAdapter<Meal> {
     private DatabaseReference reference;
 
-    public MyAdabter2(Context context, int resource) {
+    public MealAdabter(Context context, int resource) {
         super(context, resource);
 
 
