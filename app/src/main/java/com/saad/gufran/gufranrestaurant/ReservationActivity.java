@@ -1,6 +1,7 @@
 package com.saad.gufran.gufranrestaurant;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,6 +27,7 @@ public class ReservationActivity extends AppCompatActivity {
     DatabaseReference reference;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,11 +43,11 @@ public class ReservationActivity extends AppCompatActivity {
 
 
 
-
-
         btnSend.setOnClickListener(sendListener);
 
-    }
+
+
+            }
     View.OnClickListener sendListener=new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -53,17 +55,23 @@ public class ReservationActivity extends AppCompatActivity {
 
 
 
+
             String email= FirebaseAuth.getInstance().getCurrentUser().getEmail();
             email=email.replace(".","_");
-
-            reference.child(email).child("talabat").push().setValue(m, new DatabaseReference.CompletionListener() {
+            m.setOrderEmail(email);
+            reference.child("restursntUser").child("talabat").push().setValue(m, new DatabaseReference.CompletionListener() {
 
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                     if (databaseError == null) {
                         Toast.makeText(getBaseContext(), "save ok", Toast.LENGTH_LONG).show();
+                        Intent i2= new Intent(ReservationActivity.this,Status.class);
+                        startActivity(i2);
 
-                    } else {
+                    }
+
+
+                    else {
                         Toast.makeText(getBaseContext(), "save Err" + databaseError.getMessage(), Toast.LENGTH_LONG).show();
                         databaseError.toException().printStackTrace();
 
@@ -72,6 +80,7 @@ public class ReservationActivity extends AppCompatActivity {
 
                 }
             });
+
         }
     };
 
@@ -120,6 +129,7 @@ public class ReservationActivity extends AppCompatActivity {
 
     private void initListView() {
         adabter.clear();
+
         for (Product p:m.getDrinks())
         {
 
@@ -141,4 +151,5 @@ public class ReservationActivity extends AppCompatActivity {
 
 
     }
-}
+
+   }

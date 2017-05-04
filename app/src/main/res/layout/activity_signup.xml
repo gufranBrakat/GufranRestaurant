@@ -23,6 +23,7 @@
             android:id="@+id/etemail"
             android:hint="@string/email" />
 
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,9 +44,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/etName"
-            android:hint="@string/name" />
+            android:hint="@string/name"
+            />
+
 
         <Button
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Save"

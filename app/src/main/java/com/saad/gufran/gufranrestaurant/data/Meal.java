@@ -9,14 +9,25 @@ import java.util.ArrayList;
 public class Meal implements Serializable{
 
 
-
+    public final static String ONTHEWAY="ontheway";
+    public final static String ISNTYETREADY="is not yet ready";
+    public final static String READRY="Ready";
+    private String orderEmail;
+    private String status;
     private ArrayList<Product> drinks;
     private ArrayList<Product> sweets;
     private ArrayList<Product> appetizer;
     private ArrayList<Product> wgabat;
     private ArrayList<Product> salads;
+    private String key;
 
+    public String getKey() {
+        return key;
+    }
 
+    public void setKey(String key) {
+        this.key = key;
+    }
 
     public Meal() {
         sweets=new ArrayList<Product>();
@@ -51,6 +62,16 @@ public class Meal implements Serializable{
             salads.add(p);
         }
     }
+
+    public String getStatus(){return status;}
+    public String getOrderEmail() {
+        return orderEmail;
+    }
+
+    public void setOrderEmail(String orderEmail) {
+        this.orderEmail = orderEmail;
+    }
+     public void setStatus(String status){this.status=status;}
 
     public ArrayList<Product> getDrinks() {
         return drinks;

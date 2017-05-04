@@ -19,10 +19,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText etemail;
     private EditText etpassword;
-    private EditText etPhone;
     private Button btnSignup;
     private Button btnLogin;
-    private Button btnforgot;
+    private Button btnforgot,btnRsturant;;
     private FirebaseAuth auth;
 
 
@@ -36,12 +35,15 @@ public class LoginActivity extends AppCompatActivity {
 
         etemail = (EditText) findViewById(R.id.etemail);
         etpassword = (EditText) findViewById(R.id.etpassword);
-        etPhone= (EditText) findViewById(R.id.etPhone) ;
         btnSignup = (Button) findViewById(R.id.btnSignup);
         btnforgot = (Button) findViewById(R.id.btnForgot);
         btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnRsturant=(Button) findViewById(R.id.btnRsturant);
         auth= FirebaseAuth.getInstance();
         eventHandler();
+
+
+//3shan edl faet m7obar
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             Intent i1= new Intent(LoginActivity.this,ChoicesActivity.class);
             startActivity(i1);
@@ -95,17 +97,31 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
+        btnRsturant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(),Orders.class));
+            }
+        });
     }
 
 
-    private void signIn(String email, String passw) {
+    private void signIn(final String email, String passw) {
         auth.signInWithEmailAndPassword(email, passw).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Intent i= new Intent(LoginActivity.this,ChoicesActivity.class);
-                    startActivity(i);
                     Toast.makeText(LoginActivity.this, "signIn Successful.", Toast.LENGTH_SHORT).show();
+                    if(email.equals("gufran@gmail.com"))
+                    {
+                        Intent i= new Intent(LoginActivity.this,Orders.class);
+                        startActivity(i);
+                    }
+                    else {
+                        Intent i = new Intent(LoginActivity.this, ChoicesActivity.class);
+                        startActivity(i);
+                    }
+
                     // Intent intent=new Intent(LogInActivity.this,MainFCMActivity.class);
                     //   startActivity(intent);
                     //  finish();

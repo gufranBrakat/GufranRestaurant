@@ -34,7 +34,7 @@ public class MyAdabter extends ArrayAdapter<Product> {
         TextView tvView1 = (TextView) convertView .findViewById(R.id.tvView1);
         TextView tvView2 = (TextView) convertView .findViewById(R.id.tvView2);
         TextView tvView3 = (TextView) convertView .findViewById(R.id.tvView3);
-    CheckBox etchekBox1 = (CheckBox) convertView . findViewById(R.id.etcheckBox1);
+
         final Product M = getItem(position);
 
         tvView1.setText(M.getKind());

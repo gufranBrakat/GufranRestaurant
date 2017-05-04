@@ -13,11 +13,13 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></LinearLayout>
+        android:layout_height="match_parent"
+        android:id="@+id/linearLayout"></LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/linearLayout"
         android:layout_alignParentTop="true">
 
         <TextView
@@ -26,12 +28,15 @@
             android:text="Welcome"
             android:id="@+id/etWelcome"
             android:layout_weight="0.18"
-            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:background="#f7f4f4"
             android:autoText="false"
             android:backgroundTint="#f7f4f4"
-            android:textColor="#e93636" />
+            android:textColor="#4caf50"
+            android:textStyle="bold|italic"
+            android:singleLine="false"
+            android:textSize="@dimen/abc_text_size_display_1_material"
+            android:layout_alignParentTop="true" />
     </RelativeLayout>
 
 </RelativeLayout>

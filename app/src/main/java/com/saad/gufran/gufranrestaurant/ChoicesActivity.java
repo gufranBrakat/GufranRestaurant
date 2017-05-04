@@ -134,6 +134,7 @@ public class ChoicesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i1 = new Intent(ChoicesActivity.this, ReservationActivity.class);
+
                 i1.putExtra("meal",m);
                 startActivity(i1);
             }
@@ -208,7 +209,7 @@ public class ChoicesActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
-                // Update the current focused item's checked status
+                // Update the current focused item's checked Status
                 checkedDrinks[which] = isChecked;
 
 
@@ -320,7 +321,7 @@ public class ChoicesActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
-                // Update the current focused item's checked status
+                // Update the current focused item's checked Status
                 checkedwgabt[which] = isChecked;
 
                 // Get the current focused item
@@ -429,7 +430,7 @@ public class ChoicesActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
-                // Update the current focused item's checked status
+                // Update the current focused item's checked Status
                 checkedAppetizer[which] = isChecked;
 
                 // Get the current focused item
@@ -537,7 +538,7 @@ public class ChoicesActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
-                    // Update the current focused item's checked status
+                    // Update the current focused item's checked Status
                     checkedsalad[which] = isChecked;
 
                     // Get the current focused item
@@ -645,7 +646,7 @@ public class ChoicesActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
-                        // Update the current focused item's checked status
+                        // Update the current focused item's checked Status
                        checkedsweet[which] = isChecked;
 
                         // Get the current focused item

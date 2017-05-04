@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GufranRestaurant</string>
+    <string name="app_name">Restaurant</string>
     <string name="welcome">welcome</string>
     <string name="phone">phone number</string>
     <string name="reservations">reservations</string>
@@ -23,4 +23,8 @@
     <string name="appetizer">appetizer</string>
     <string name="Salads">salads</string>
     <string name="Sweets">Sweets</string>
+    <string name="status">status</string>
+    <string name="send">send</string>
+    <string name="kabla">kabla</string>
+    <string name="statu">Status</string>
 </resources>
