@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etpassword;
     private Button btnSignup;
     private Button btnLogin;
-    private Button btnforgot,btnRsturant;;
+    private Button btnforgot;
     private FirebaseAuth auth;
 
 
@@ -38,7 +38,6 @@ public class LoginActivity extends AppCompatActivity {
         btnSignup = (Button) findViewById(R.id.btnSignup);
         btnforgot = (Button) findViewById(R.id.btnForgot);
         btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnRsturant=(Button) findViewById(R.id.btnRsturant);
         auth= FirebaseAuth.getInstance();
         eventHandler();
 
@@ -97,12 +96,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
-        btnRsturant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(),Orders.class));
-            }
-        });
+
     }
 
 

@@ -4,4 +4,5 @@
         android:title="@string/logout"></item>
     <item android:id="@+id/setting"
         android:title="@string/setting"></item>
+
 </menu>

@@ -12,6 +12,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.saad.gufran.gufranrestaurant.data.Meal;
 import com.saad.gufran.gufranrestaurant.data.Product;
 
@@ -26,6 +31,7 @@ public class ChoicesActivity extends AppCompatActivity {
     private Button btnSweets;
     private Button btnKabala;
     private Meal m;
+    private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,35 @@ public class ChoicesActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        reference = FirebaseDatabase.getInstance().getReference();
+        String email= FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        email=email.replace(".","_");
+        reference.child("restursntUser").child("talabat").orderByChild("orderEmail").equalTo(email).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists())
+                {
+                    Intent i = new Intent(ChoicesActivity.this, Status.class);
+                    startActivity(i);
+
+                }
+                else
+                {
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -273,9 +308,9 @@ public class ChoicesActivity extends AppCompatActivity {
         String[] wgbat = new String[]{
                 "kebab",
                 "Grilled chicken",
-                "",
-                "Purple",
-                "Olive"
+                "Fried Fish",
+                "grilled meet",
+                "shrimp",
         };
         final double[] price = new double[]{
                 9,
@@ -384,8 +419,7 @@ public class ChoicesActivity extends AppCompatActivity {
                 "Hamburg",
                 "schnitzel",
                 "chips",
-                "Purple",
-                "Olive"
+                "Sausage",
         };
         final double[] price = new double[]{
                 9,
@@ -492,8 +526,7 @@ public class ChoicesActivity extends AppCompatActivity {
                     "cabbage salad",
                     "cucumber and totatos",
                     "corn_pickles",
-                    "Purple",
-                    "Olive"
+
             };
             final double[] price = new double[]{
                     12,
@@ -600,8 +633,7 @@ public class ChoicesActivity extends AppCompatActivity {
                         "Souffle",
                         "Pavla",
                         "Fruits",
-                        "Purple",
-                        "Olive"
+                        "cake",
                 };
                 final double[] price = new double[]{
                         9,

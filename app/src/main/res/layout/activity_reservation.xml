@@ -7,8 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.saad.gufran.gufranrestaurant.ReservationActivity"
-    android:background="#9aa7a8">
+    tools:context="com.saad.gufran.gufranrestaurant.ReservationActivity">
 
     <Button
         android:layout_width="wrap_content"

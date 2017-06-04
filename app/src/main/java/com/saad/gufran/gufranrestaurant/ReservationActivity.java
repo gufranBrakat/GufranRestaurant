@@ -35,7 +35,6 @@ public class ReservationActivity extends AppCompatActivity {
         etList = (ListView) findViewById(R.id.etList);
         btnSend=(Button)findViewById(R.id.btnSend);
         adabter=new MyAdabter(this,R.layout.item_prodact);
-        reference = FirebaseDatabase.getInstance().getReference();
         etList.setAdapter(adabter);
 
 
@@ -55,7 +54,7 @@ public class ReservationActivity extends AppCompatActivity {
 
 
 
-
+            reference = FirebaseDatabase.getInstance().getReference();
             String email= FirebaseAuth.getInstance().getCurrentUser().getEmail();
             email=email.replace(".","_");
             m.setOrderEmail(email);

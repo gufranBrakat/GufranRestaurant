@@ -9,4 +9,6 @@
         <item name="android:windowBackground">@color/background_floating_material_light</item>
     </style>
 
+    <style name="Theme.AppCompat.Light.NoActionBar.Light" parent="android:Theme.Holo.Light" />
+
 </resources>

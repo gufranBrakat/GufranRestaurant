@@ -57,7 +57,7 @@ public class MealAdabter extends ArrayAdapter<Meal> {
            @Override
            public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 int id=radioGroup.getCheckedRadioButtonId();
-             if(id==R.id.ready) {
+             if(id==R.id.ready)
                  M.setStatus(Meal.READRY);
 
                  if (id == R.id.isnotyetalready)
@@ -67,11 +67,8 @@ public class MealAdabter extends ArrayAdapter<Meal> {
                  if (id == R.id.ontheway)
                      M.setStatus(Meal.ONTHEWAY);
 
-             }
 
-//               String email= FirebaseAuth.getInstance().getCurrentUser().getEmail();
-//               email=email.replace(".","_");
-//               m.setOrderEmail(email);
+
                reference = FirebaseDatabase.getInstance().getReference();
 
                reference.child("restursntUser").child("talabat").child(M.getKey()).setValue(M, new DatabaseReference.CompletionListener() {
@@ -138,7 +135,6 @@ public class MealAdabter extends ArrayAdapter<Meal> {
                         }
                     }
                 });
-
 
             }
 
